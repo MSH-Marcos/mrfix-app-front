@@ -1,53 +1,61 @@
 <template>
     <!-- Default form contact -->
-    <form>
-        <p class="h4 text-center mb-4">Regist</p>
+    <div>
+        <b-card bg-variant="light">
+            <b-form-group label-cols-lg="3"
+                          label="Regist New User"
+                          label-size="lg"
+                          label-class="font-weight-bold pt-0"
+                          class="mb-0">
+                <b-form-group label-cols-sm="3"
+                              label="Username:"
+                              label-align-sm="right"
+                              label-for="nested-username">
+                    <b-form-input id="username" v-model="userRegistData.name"></b-form-input>
+                </b-form-group>
 
-        <!-- Default input name -->
-        <label for="defaultFormContactNameEx" class="grey-text">Username: </label>
-        <input type="text" name="username" v-model="userRegistData.name" placeholder="Username">
+                <b-form-group label-cols-sm="3"
+                              label="Password:"
+                              label-align-sm="right"
+                              label-for="nested-password">
+                    <b-form-input id="password" v-model="userRegistData.password"></b-form-input>
+                </b-form-group>
 
-        <br>
+                <b-form-group label-cols-sm="3"
+                              label="Complete Name:"
+                              label-align-sm="right"
+                              label-for="nested-state">
+                    <b-form-input id="nested-completeName" v-model="userRegistData.surname"></b-form-input>
+                </b-form-group>
 
-        <!-- Default input email -->
-        <label for="defaultFormContactNameEx" class="grey-text">Password: </label>
-        <input type="text" name="password" v-model="userRegistData.password" placeholder="Password">
+                <b-form-group label-cols-sm="3"
+                              label="Email:"
+                              label-align-sm="right"
+                              label-for="nested-email">
+                    <b-form-input id="nested-email" v-model="userRegistData.email"></b-form-input>
+                </b-form-group>
 
-        <br>
+                <b-form-group label-cols-sm="3"
+                              label="Address:"
+                              label-align-sm="right"
+                              label-for="nested-email">
+                    <b-form-input id="nested-address" v-model="userRegistData.address"></b-form-input>
+                </b-form-group>
 
-        <!-- Default input subject -->
-        <label for="defaultFormContactNameEx" class="grey-text">Complete name: </label>
-        <input type="text" name="completeName" v-model="userRegistData.surname" placeholder="Complete Name">
+                <b-form-group label-cols-sm="3"
+                              label="City:"
+                              label-align-sm="right"
+                              label-for="nested-city">
+                    <b-form-input id="nested-city" v-model="userRegistData.city"></b-form-input>
+                </b-form-group>
 
-        <br>
-
-        <!-- Default input subject -->
-        <label for="defaultFormContactNameEx" class="grey-text">Email: </label>
-        <input type="text" name="email" v-model="userRegistData.email" placeholder="Email">
-
-        <br>
-
-        <!-- Default input subject -->
-        <label for="defaultFormContactNameEx" class="grey-text">Address: </label>
-        <input type="text" name="address" v-model="userRegistData.address" placeholder="Address">
-
-        <br>
-
-        <label for="defaultFormContactNameEx" class="grey-text">City: </label>
-        <select v-model="userRegistData.city">
-            <option value="Valencia">Valencia</option>
-            <option value="Barcelona">Barcelona</option>
-            <option value="Madrid">Madrid</option>
-        </select>
-
-        <br>
-
-        <div class="text-center mt-4">
-            <button type="button" v-on:click="register()">Register</button>
-            <button type="button" v-on:click="goToLogin()">Go Back</button>
-        </div>
-    </form>
-    <!-- Default form contact -->
+            </b-form-group>
+            <div class="text-center mt-4">
+                <button type="button" v-on:click="register()">Register</button>
+                <button type="button" v-on:click="goToLogin()">Go Back</button>
+            </div>
+        </b-card>
+    </div>
 </template>
 
 <script>
@@ -70,7 +78,6 @@
                 this.$router.replace({ name: "login" });
             },
             register() {
-                console.log("dsa");
                 if (this.userRegistData.username != "" && this.userRegistData.password != "" && this.userRegistData.completeName != ""
                     && this.userRegistData.email != "" && this.userRegistData.address != "" && this.userRegistData.city != "") {
 

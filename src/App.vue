@@ -23,7 +23,7 @@
                     city: "",
                     rol: "",
                     orders: [],
-                    token: "sada"
+                    token: ""
                 }
             }
         },
@@ -37,7 +37,19 @@
                 this.authenticated = status;
             },
             logout() {
-                this.authenticated = false;
+                this.userData = {
+                    id: 0,
+                    username: "",
+                    password: "",
+                    completeName: "",
+                    email: "",
+                    address: "",
+                    city: "",
+                    rol: "",
+                    orders: [],
+                    token: ""
+                };
+                this.$router.replace({ name: "login" });
             }
         }
     }

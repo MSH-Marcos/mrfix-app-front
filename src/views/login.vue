@@ -28,31 +28,32 @@
                         .then(response => {
                             this.$parent.userData.token = response.headers.authorization;
 
-                            this.$api({
-                                method: 'post',
-                                url: '/users/login',
-                                data: this.input,
-                                headers: {
-                                    Authorization: this.$parent.userData.token
-                                }
-                            }).then((response) => {
-                                this.$parent.userData.id = response.id;
-                                this.$parent.userData.username = response.name;
-                                this.$parent.userData.completeName = response.surname;
-                                this.$parent.userData.email = response.email;
-                                this.$parent.userData.address = response.address;
-                                this.$parent.userData.city = response.city;
-                                this.$parent.userData.rol = response.rol;
-                                this.$parent.userData.orders = response.orders;
-
-                                this.$router.replace({ name: "secure" });
-                            }, (error) => {
-                                console.log(error);
-                            });
+                            this.getUserData();
                         }).catch(error => console.log(error));
-
-
                 }
+            },
+            getUserData() {
+                this.$api({
+                    method: 'post',
+                    url: '/users/login',
+                    data: this.input,
+                    headers: {
+                        Authorization: this.$parent.userData.token
+                    }
+                }).then((response) => {
+                    this.$parent.userData.city = response.data.city;
+                    this.$parent.userData.id = response.data.id;
+                    this.$parent.userData.username = response.data.name;
+                    this.$parent.userData.completeName = response.data.surname;
+                    this.$parent.userData.email = response.data.email;
+                    this.$parent.userData.address = response.data.address;
+                    this.$parent.userData.rol = response.data.rol;
+                    this.$parent.userData.orders = response.data.orders;
+
+                    this.$router.replace({ name: "serviceList" });
+                }, (error) => {
+                    console.log(error);
+                });
             },
             goToRegister() {
                 this.$router.replace({ name: "register" });
