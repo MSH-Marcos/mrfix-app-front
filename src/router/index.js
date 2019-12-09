@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import LoginComponent from "../views/login.vue"
 import SecureComponent from "../views/secure.vue"
+import RegisterComponent from "../views/register.vue"
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
             path: "/secure",
             name: "secure",
             component: SecureComponent
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: RegisterComponent
         }
     ]
 })

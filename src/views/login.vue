@@ -4,6 +4,7 @@
         <input type="text" name="username" v-model="input.name" placeholder="Username" />
         <input type="password" name="password" v-model="input.password" placeholder="Password" />
         <button type="button" v-on:click="login()">Login</button>
+        <button type="button" v-on:click="goToRegister()">Register</button>
     </div>
 </template>
 
@@ -52,6 +53,9 @@
 
 
                 }
+            },
+            goToRegister() {
+                this.$router.replace({ name: "register" });
             }
         }
     }
