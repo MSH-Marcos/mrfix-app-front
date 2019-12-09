@@ -13,14 +13,22 @@
         data() {
             return {
                 authenticated: false,
-                mockAccount: {
-                    username: "nraboy",
-                    password: "password"
+                userData: {
+                    id: 0,
+                    username: "",
+                    password: "",
+                    completeName: "",
+                    email: "",
+                    address: "",
+                    city: "",
+                    rol: "",
+                    orders: [],
+                    token: "sada"
                 }
             }
         },
         mounted() {
-            if(!this.authenticated) {
+            if (!this.authenticated) {
                 this.$router.replace({ name: "login" });
             }
         },
@@ -39,10 +47,12 @@
     body {
         background-color: #F0F0F0;
     }
+
     h1 {
         padding: 0;
         margin-top: 0;
     }
+
     #app {
         width: 1024px;
         margin: auto;
