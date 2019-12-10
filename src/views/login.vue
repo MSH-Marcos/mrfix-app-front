@@ -1,6 +1,6 @@
 <template>
     <div id="login">
-        <h1>Login</h1>
+        <img src="../assets/logo.png" style="margin-bottom:10px">
         <input type="text" name="username" v-model="input.name" placeholder="Username" />
         <input type="password" name="password" v-model="input.password" placeholder="Password" />
         <button type="button" v-on:click="login()">Login</button>
