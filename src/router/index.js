@@ -5,6 +5,10 @@ import SecureComponent from "../views/secure.vue"
 import RegisterComponent from "../views/register.vue"
 import ServiceListComponent from "../views/serviceList.vue"
 import OrdersComponent from "../views/orders.vue"
+import UserDetailsComponent from "../views/userDetails.vue"
+import AdminServicesComponent from "../views/adminServices.vue"
+import CreateServiceComponent from "../views/createService.vue"
+import AdminOrdersComponent from "../views/adminOrders.vue"
 
 
 Vue.use(Router)
@@ -41,6 +45,26 @@ export default new Router({
             path: "/orders",
             name: "orders",
             component: OrdersComponent
+        },
+        {
+            path: "/userDetails",
+            name: "userDetails",
+            component: UserDetailsComponent
+        },
+        {
+            path: "/adminServices",
+            name: "adminServices",
+            component: AdminServicesComponent
+        },
+        {
+            path: "/createService",
+            name: "createService",
+            component: CreateServiceComponent
+        },
+        {
+            path: "/adminOrders",
+            name: "adminOrders",
+            component: AdminOrdersComponent
         }
     ]
 })

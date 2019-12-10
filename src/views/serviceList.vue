@@ -2,8 +2,9 @@
     <div>
         <div>
             <b-button v-on:click="logout()" variant="primary" style="margin-left:8px">Logout</b-button>
-            <b-button v-on:click="logout()" variant="primary" style="margin-left:8px">User Details</b-button>
+            <b-button v-on:click="goToUserDetails()" variant="primary" style="margin-left:8px">User Details</b-button>
             <b-button v-on:click="goToOrders()" variant="primary" style="margin-left:8px">Orders</b-button>
+            <b-button v-on:click="goToAdmin()" variant="primary" style="margin-left:8px">Admin</b-button>
         </div>
         <b-card-group deck>
 
@@ -72,6 +73,12 @@
             },
             goToOrders() {
                 this.$router.replace({ name: "orders" });
+            },
+            goToUserDetails() {
+                this.$router.replace({ name: "userDetails" });
+            },
+            goToAdmin() {
+                this.$router.replace({ name: "adminServices" });
             }
         }
     }

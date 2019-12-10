@@ -13,24 +13,12 @@
         data() {
             return {
                 fields: ['serviceName', 'price', 'creationDate', 'arriveDate'],
-                orders: this.$parent.userData.orders
+                orders: this.$parent.ordersService
             }
-        }, mounted() {
-            this.$api({
-                method: 'get',
-                url: ('/orders/user/' + this.$parent.userData.id),
-                headers: {
-                    Authorization: this.$parent.userData.token
-                }
-            }).then((response) => {
-                console.log(response.data);
-                this.$parent.userData.orders = response.data;
-            }, (error) => {
-                console.log(error);
-            });
-        }, methods: {
+        },
+        methods: {
             goBack() {
-                this.$router.replace({ name: "serviceList" });
+                this.$router.replace({ name: "adminServices" });
             },
             logout() {
                 this.$parent.logout();
