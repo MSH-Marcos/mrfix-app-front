@@ -10,6 +10,7 @@
             <b-card v-for="(service, index) in servicesData"
                     v-bind:key="index"
                     :title=service.name
+                    :sub-title=service.price
                     v-model="servicesData"
                     img-src="https://picsum.photos/600/300/?image=25"
                     img-alt="Image"
@@ -31,7 +32,7 @@
         name: 'ServiceList',
         data() {
             return {
-                servicesData: [],
+                servicesData: []
             }
         },
         mounted() {
